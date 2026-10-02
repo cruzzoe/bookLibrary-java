@@ -2,8 +2,8 @@
 
 public class Manga extends Book implements Lendable {
     
-    public Manga(String name, int bookID){
-        super(name, bookID);
+    public Manga(String name){
+        super(name);
     }
 
     @Override

@@ -6,17 +6,20 @@ import java.util.List;
 public class Library{
 
     private List<Book> libraryItems = new ArrayList<>();
+    private int nextBookID = 1;
+
+    public void addBook(Book book){
+        book.setID(nextBookID);
+        nextBookID++;
+        libraryItems.add(book);
+    }
 
     public void loadBooks(){
         System.out.println("Loading books to library");
-        Book b1 = new Manga("One Piece", 1);
-        Book b2 = new Manga("Death Note", 2);
-        Book b3 = new Manga("Attack on Titan", 3);
-        Book b4 = new Textbook("We love Maths!", 4);
-        libraryItems.add(b1);
-        libraryItems.add(b2);
-        libraryItems.add(b3);
-        libraryItems.add(b4);
+        addBook(new Manga("One Piece"));
+        addBook(new Manga("Death Note"));
+        addBook(new Manga("Attack on Titan"));
+        addBook(new Textbook("We love Maths!"));
 
         System.out.println("Books added");
     }

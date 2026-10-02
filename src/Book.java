@@ -5,9 +5,8 @@ public abstract class Book {
     private int bookID;
     protected User borrower;
 
-    public Book(String name, int bookID){
+    public Book(String name){
         this.name = name;
-        this.bookID = bookID;
     }
 
     public String getName(){
@@ -16,6 +15,10 @@ public abstract class Book {
 
     public int getID(){
         return bookID;
+    }
+
+    public void setID(int bookID){
+        this.bookID = bookID;
     }
 
     public boolean isAvailable(){
