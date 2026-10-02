@@ -8,6 +8,8 @@ public class StartLibraryTest {
         lib.printBooks();
         lib.borrowBooks();
         lib.printBooks();
+        lib.returnBooks();
+        lib.printBooks();
         System.out.println("Ending Simulation...");
     }
 }
