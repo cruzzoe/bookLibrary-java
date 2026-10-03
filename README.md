@@ -31,3 +31,21 @@ The `Library` class represents the library as a whole and provides library-level
 * Implement librarian actions, such as removing books from the library and modifying book information.
 * Implement file saving and loading.
 * Remove UserID from User class constructor
+
+## Testing
+
+Download the JUnit Platform Console Standalone JAR and place it in:
+
+lib/
+
+Then compile and run:
+
+javac -d out src/*.java
+
+javac -cp "lib/junit-platform-console-standalone-1.14.2.jar:out" \
+      -d out test/*.java
+
+java -jar lib/junit-platform-console-standalone-1.14.2.jar \
+      execute \
+      --class-path out \
+      --scan-class-path
