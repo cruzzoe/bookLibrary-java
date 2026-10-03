@@ -26,6 +26,8 @@ The `Library` class represents the library as a whole and provides library-level
 ## TODO
 
 * allow the librarian User to renew books
+* finish off unit test for Manga class
 * Implement return-date tracking and allow the maximum borrowing duration to vary by user type.
 * Implement librarian actions, such as removing books from the library and modifying book information.
 * Implement file saving and loading.
+* Remove UserID from User class constructor
