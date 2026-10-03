@@ -20,6 +20,7 @@ public class Library{
         addBook(new Manga("Death Note"));
         addBook(new Manga("Attack on Titan"));
         addBook(new Textbook("We love Maths!"));
+        addBook(new Poetry("Sonnets"));
 
         System.out.println("Books added");
     }
@@ -33,6 +34,8 @@ public class Library{
         Book tb1 = libraryItems.get(3);
         // attempt to borrow a restricted book
         borrow(tb1, u1);
+        Book poems =  libraryItems.get(4);
+        borrow(poems, u1);
     } 
 
     public void returnBooks(){
@@ -46,7 +49,12 @@ public class Library{
     public void printBooks(){
         System.out.println("-----");
         for (Book book:libraryItems){
-            System.out.println(book.getID()+ "--:--" + book.getName() + "--:--" + book.status());
+            if (!book.isAvailable()){
+                System.out.println(book.getID()+ "--:--" + book.getName() + "--:--" + book.status() + "--:-- Loan due on: " + book.loan.getDueDate());
+            }
+            else{
+                System.out.println(book.getID()+ "--:--" + book.getName() + "--:--" + book.status());
+            }
         }
         System.out.println("-----");
     }

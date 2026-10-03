@@ -1,10 +1,10 @@
 
 
-public class Manga extends Book implements Lendable {
+public class Poetry extends Book implements Lendable {
     
-    private int loanLength = 7;
+    private int loanLength = 3;
 
-    public Manga(String name){
+    public Poetry(String name){
         super(name);
     }
 

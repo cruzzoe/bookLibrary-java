@@ -3,7 +3,8 @@ public abstract class Book {
     
     private String name;
     private int bookID;
-    protected User borrower;
+    //protected User borrower;
+    protected Loan loan;
 
     public Book(String name){
         this.name = name;
@@ -22,7 +23,7 @@ public abstract class Book {
     }
 
     public boolean isAvailable(){
-        if (borrower !=null){
+        if (loan !=null){
             return false;
         }    
         else{
