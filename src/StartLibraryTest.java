@@ -5,6 +5,7 @@ public class StartLibraryTest {
         System.out.println("Started library simulation...");
         Library lib = new Library();
         lib.loadBooks();
+        lib.loadUsers();
         lib.printBooks();
         lib.borrowBooks();
         lib.printBooks();

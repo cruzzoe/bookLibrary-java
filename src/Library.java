@@ -6,12 +6,20 @@ import java.util.List;
 public class Library{
 
     private List<Book> libraryItems = new ArrayList<>();
+    private List<User> libraryUsers = new ArrayList<>();
     private int nextBookID = 1;
+    private int nextUserID = 1;
 
     public void addBook(Book book){
         book.setID(nextBookID);
         nextBookID++;
         libraryItems.add(book);
+    }
+
+    public void addUser(User user){
+        user.setUserID(nextUserID);
+        nextUserID++;
+        libraryUsers.add(user);
     }
 
     public void loadBooks(){
@@ -22,12 +30,20 @@ public class Library{
         addBook(new Textbook("We love Maths!"));
         addBook(new Poetry("Sonnets"));
 
-        System.out.println("Books added");
+        System.out.println("Books added.");
+    }
+
+    public void loadUsers(){
+        System.out.println("Loading Users to library...");
+        addUser(new StandardUser("Keanu Reeves"));
+        addUser(new StandardUser("Bill Gates"));
+        addUser(new StandardUser("Steve Jobs"));
+        System.out.println("Users added.");
     }
 
     public void borrowBooks(){
         Book b1 = libraryItems.get(2);
-        User u1 = new StandardUser(1, "Keanu"); 
+        User u1 = libraryUsers.get(1); 
         borrow(b1, u1);
         // attempt to borrow a restricted book
         Book tb1 = libraryItems.get(3);
