@@ -15,6 +15,9 @@ public class Loan {
     public LocalDate getDueDate(){
         return dueDate;
     }
-
+    
+    public User getBorrower(){
+        return this.borrower;
+    }
 }
 

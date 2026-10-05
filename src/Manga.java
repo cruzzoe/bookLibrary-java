@@ -1,6 +1,6 @@
 
 
-public class Manga extends Book implements Lendable {
+public class Manga extends LendableBook implements Lendable {
     
     private int loanLength = 7;
 
@@ -9,15 +9,8 @@ public class Manga extends Book implements Lendable {
     }
 
     @Override
-    public void borrow(User user){
-        Loan newLoan = new Loan(user, loanLength);
-        this.loan = newLoan;
-        System.out.println("Book borrowed by user: " + user.getName());
+    public int getLoanLength() {
+        return loanLength;
     }
 
-    @Override
-    public void returnToLibrary(){
-        this.loan = null;
-        System.out.println("Book returned");
-    }
 }

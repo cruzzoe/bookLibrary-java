@@ -29,10 +29,8 @@ public class Library{
         Book b1 = libraryItems.get(2);
         User u1 = new StandardUser(1, "Keanu"); 
         borrow(b1, u1);
-        // attempt to borrow the same book twice
-        borrow(b1, u1);
-        Book tb1 = libraryItems.get(3);
         // attempt to borrow a restricted book
+        Book tb1 = libraryItems.get(3);
         borrow(tb1, u1);
         Book poems =  libraryItems.get(4);
         borrow(poems, u1);
