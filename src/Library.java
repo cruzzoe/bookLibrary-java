@@ -75,38 +75,26 @@ public class Library{
 
     public void borrow(Book book, User user){
         System.out.println("Attempting to borrow book: '" + book.getName() + "'");
-        if (book instanceof Lendable) {
-            if (book.isAvailable()){
-                Lendable lendable = (Lendable) book;
-                lendable.borrow(user);
-                System.out.println("Book: '"+ book.getName() + "' has been borrowed by user: " + user.getName());
-            }
-            else{
-                System.out.println("Book: '" + book.getName() + "' is unavailable. No action taken!");
-            }
-        }
-        else {
-            System.out.println("Book: '"+ book.getName() + "' is not available for lending - this is a reference only book.");
+        try{
+            book.borrow(user);
+            System.out.println("Book: '"+ book.getName() + "' has been borrowed by user: " + user.getName());
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Book: '" + book.getName() + "' is not available for lending - this is a reference only book.");
+        } catch (IllegalStateException e) {
+            System.out.println("Book: '" + book.getName() + "' is not available for lending - it has already been borrowed!");
         }
     }
 
     public void returnBook(Book book){
         System.out.println("Attempting to return book: '" + book.getName() + "'");
 
-        if (book instanceof Lendable) {
-
-            if (book.isAvailable()){
-                System.out.println("ERROR - Book: '"+ book.getName() + "' has already been returned!");
-            }
-            else{
-                Lendable lendable = (Lendable) book;
-                lendable.returnToLibrary();
-                System.out.println("Book: '" + book.getName() + "' has been returned");
-            }
-
-        }
-        else {
-            System.out.println("Book: '"+ book.getName() + "' is not available for lending - this is a reference only book.");
+        try {
+             book.returnToLibrary();
+             System.out.println("Book: '" + book.getName() + "' has been returned");
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Cannot return a reference book");
+        } catch (IllegalStateException e){
+            System.out.println("Cannot return a book that is already in the library");
         }
     }
 }

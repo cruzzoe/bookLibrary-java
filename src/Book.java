@@ -40,5 +40,14 @@ public abstract class Book {
         }
         
     }
+
+    public void borrow(User user) {
+        throw new UnsupportedOperationException( "'" + getName() + "' is reference only and cannot be borrowed");
+      }
+
+    public void returnToLibrary() {
+        throw new UnsupportedOperationException( "'" + getName() + "' is reference only and cannot be returned");
+      }
 }
+
 

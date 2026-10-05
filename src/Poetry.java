@@ -1,6 +1,6 @@
 
 
-public class Poetry extends LendableBook implements Lendable {
+public class Poetry extends LendableBook {
     
     private int loanLength = 3;
 

@@ -1,6 +1,6 @@
 
 
-public class Manga extends LendableBook implements Lendable {
+public class Manga extends LendableBook {
     
     private int loanLength = 7;
 
