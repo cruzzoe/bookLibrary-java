@@ -3,8 +3,6 @@ public abstract class Book {
     
     private String name;
     private int bookID;
-    //protected User borrower;
-    protected Loan loan;
 
     public Book(String name){
         this.name = name;
@@ -22,25 +20,6 @@ public abstract class Book {
         this.bookID = bookID;
     }
 
-    public boolean isAvailable(){
-        if (loan !=null){
-            return false;
-        }    
-        else{
-            return true;
-        }
-    }
-
-    public String status(){
-        if (isAvailable()){
-            return "AVAILABLE";
-        }
-        else {
-            return "NA";
-        }
-        
-    }
-
     public void borrow(User user) {
         throw new UnsupportedOperationException( "'" + getName() + "' is reference only and cannot be borrowed");
       }
@@ -48,6 +27,9 @@ public abstract class Book {
     public void returnToLibrary() {
         throw new UnsupportedOperationException( "'" + getName() + "' is reference only and cannot be returned");
       }
+
+    public abstract String getStatusDescription();
+
 }
 
 

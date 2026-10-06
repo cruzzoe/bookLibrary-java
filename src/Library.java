@@ -63,12 +63,7 @@ public class Library{
     public void printBooks(){
         System.out.println("-----");
         for (Book book:libraryItems){
-            if (!book.isAvailable()){
-                System.out.println(book.getID()+ "--:--" + book.getName() + "--:--" + book.status() + "--:-- Loan due on: " + book.loan.getDueDate());
-            }
-            else{
-                System.out.println(book.getID()+ "--:--" + book.getName() + "--:--" + book.status());
-            }
+            System.out.println(book.getID() + "--:--" + book.getName() + "--:--" + book.getStatusDescription());
         }
         System.out.println("-----");
     }

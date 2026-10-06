@@ -2,6 +2,8 @@
 
 public abstract class LendableBook extends Book {
 
+    private Loan loan;
+
     public LendableBook(String name) {
         super(name);
     }
@@ -19,7 +21,6 @@ public abstract class LendableBook extends Book {
 
     public abstract int getLoanLength();
 
-
     @Override
     public void returnToLibrary(){
         if (this.loan != null){
@@ -33,4 +34,21 @@ public abstract class LendableBook extends Book {
     public Loan getLoan() {
         return this.loan;
     }
+
+    public boolean isAvailable(){
+        if (loan !=null){
+            return false;
+        }
+
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public String getStatusDescription() {
+        if (loan == null) return "AVAILABLE";
+        return "BORROWED, due " + loan.getDueDate();
+  }
+
 }
